@@ -6,7 +6,58 @@ wezterm.on("gui-startup", function(cmd)
 	window:gui_window():maximize()
 end)
 
-local COLORS = {
+local CONFIG = {
+	-- Remove title bar and window frame
+	window_decorations = "NONE",
+
+	enable_tab_bar = true, -- Keep WezTerm's own tab bar
+	hide_tab_bar_if_only_one_tab = true,
+
+	-- Optional: Add padding since there's no window chrome
+	window_padding = {
+		left = 5,
+		right = 5,
+		top = 5,
+		bottom = 5,
+	},
+
+	-- Semi-transparent black background
+	window_background_opacity = 0.80,
+	text_background_opacity = 1.0,
+
+	default_cursor_style = "BlinkingBar",
+	cursor_blink_ease_in = "Constant",
+	cursor_blink_ease_out = "Constant",
+	cursor_blink_rate = 600, -- Milliseconds
+
+	inactive_pane_hsb = {
+		saturation = 1.0,
+		brightness = 0.5,
+	},
+	bold_brightens_ansi_colors = true,
+
+	-- Force the cursor to be a thin vertical line
+	force_reverse_video_cursor = true,
+	font_rules = {
+		{
+			intensity = "Bold",
+			font = wezterm.font({ family = "Fira Code Nerd Font", weight = "Bold" }),
+		},
+	},
+
+	font = wezterm.font_with_fallback({
+		{ family = "Fira Code Nerd Font", weight = "Regular" },
+		"Consolas",
+	}),
+	font_size = 11.0,
+
+	-- Persist tabs when the window is closed
+	window_close_confirmation = "NeverPrompt",
+	-- Automatically restore tabs when reopening
+	default_gui_startup_args = { "connect", "wezterm" },
+}
+
+CONFIG.colors = {
 	-- Default colors
 	foreground = "#fff1e6",
 	background = "#100e09",
@@ -39,7 +90,7 @@ local COLORS = {
 	cursor_bg = "#fff1e6",
 }
 
-local KEYS = {
+CONFIG.keys = {
 	-- Tabs
 	{ key = "LeftArrow", mods = "SHIFT", action = wezterm.action.ActivateTabRelative(-1) },
 	{ key = "RightArrow", mods = "SHIFT", action = wezterm.action.ActivateTabRelative(1) },
@@ -55,62 +106,4 @@ local KEYS = {
 	{ key = "DownArrow", mods = "CTRL|SHIFT", action = wezterm.action.ActivatePaneDirection("Down") },
 }
 
-return {
-	-- Remove title bar and window frame
-	window_decorations = "NONE", -- Completely hides everything
-	-- Alternative: "TITLE | RESIZE" if you want some decorations
-
-	-- Recommended additional settings:
-	enable_tab_bar = true, -- Keep WezTerm's own tab bar
-	hide_tab_bar_if_only_one_tab = true, -- Cleaner for single tab
-
-	-- Optional: Add padding since there's no window chrome
-	window_padding = {
-		left = 5,
-		right = 5,
-		top = 5,
-		bottom = 5,
-	},
-	-- Semi-transparent black background
-	window_background_opacity = 0.80, -- Adjust between 0.0 (transparent) and 1.0 (opaque)
-	text_background_opacity = 1.0, -- Keep text fully opaque for readability
-
-	-- Alternative: Custom color scheme definition
-	default_cursor_style = "BlinkingBar", -- Other options: "SteadyBar", "BlinkingBlock", "SteadyBlock"
-
-	-- Cursor color settings
-	cursor_blink_ease_in = "Constant", -- Blinking style
-	cursor_blink_ease_out = "Constant",
-	cursor_blink_rate = 600, -- Blink speed in milliseconds
-
-	-- Custom cursor colors
-	colors = COLORS,
-	inactive_pane_hsb = {
-		saturation = 1.0, -- Reduce color intensity (0.0 = grayscale, 1.0 = full color)
-		brightness = 0.5, -- Reduce brightness (0.0 = black, 1.0 = normal)
-	},
-	bold_brightens_ansi_colors = true,
-
-	-- Force the cursor to be a thin vertical line
-	force_reverse_video_cursor = true, -- Makes the cursor more visible
-	font_rules = {
-		{
-			intensity = "Bold",
-			font = wezterm.font({ family = "Fira Code Nerd Font", weight = "Bold" }),
-		},
-	},
-
-	font = wezterm.font_with_fallback({
-		-- Specify your preferred font family
-		{ family = "Fira Code Nerd Font", weight = "Regular" },
-		"Consolas",
-	}),
-	font_size = 11.0, -- Default is usually 12.0, adjust as needed
-
-	keys = KEYS,
-
-	-- Persist tabs when the window is closed
-	window_close_confirmation = "NeverPrompt",
-	-- Automatically restore tabs when reopening
-	default_gui_startup_args = { "connect", "wezterm" },
-}
+return CONFIG
