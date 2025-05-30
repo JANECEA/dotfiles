@@ -1,0 +1,17 @@
+AllowShortFunctionsOnASingleLine: None
+AllowAllArgumentsOnNextLine: false
+BasedOnStyle: LLVM
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+
+# Force each parameter on a new line
+BinPackParameters: false
+BinPackArguments: false
+AllowAllParametersOfDeclarationOnNextLine: false
+
+# Control alignment inside parentheses
+AlignAfterOpenBracket: BlockIndent
+AlignConsecutiveDeclarations: false
+BreakAfterReturnType: None
+PenaltyReturnTypeOnItsOwnLine: 1000
