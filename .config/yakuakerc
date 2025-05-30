@@ -1,0 +1,26 @@
+[Appearance]
+BackgroundColor=16,9,4
+BackgroundColorOpacity=90
+HideSkinBorders=true
+Skin=transparent-tabs
+SkinInstalledWithKns=true
+Translucency=true
+
+[Behavior]
+FocusFollowsMouse=true
+
+[Desktop Entry]
+DefaultProfile=Premium black.profile
+
+[Dialogs]
+FirstRun=false
+
+[Shortcuts]
+close-session=;\s
+file_quit=Ctrl+Shift+Q; Shift+F4
+
+[Window]
+Height=100
+KeepOpen=false
+ShowTitleBar=false
+Width=100

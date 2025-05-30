@@ -1,0 +1,28 @@
+MenuBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=Premium black.profile
+
+[FileDialogSize]
+2 screens: Window-Maximized=true
+
+[General]
+ConfigVersion=1
+
+[KonsoleWindow]
+RemoveWindowTitleBarAndFrame=true
+
+[MainWindow]
+MenuBar=Disabled
+
+[Notification Messages]
+CloseAllEmptyTabs=true
+
+[SplitView]
+SplitViewVisibility=AlwaysHideSplitHeader
+
+[TabBar]
+CloseTabOnMiddleMouseButton=true
+
+[UiSettings]
+ColorScheme=
