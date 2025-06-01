@@ -27,5 +27,17 @@ unset rc
 . "$HOME/.cargo/env"
 export PATH="$PATH:~/Documents/CODE/UTILS-windows/UTILS"
 
+yazi() {
+  local tmpfile=$(mktemp)
+  command yazi --cwd-file="$tmpfile" "$@"
+  if [ -f "$tmpfile" ]; then
+    local last_dir=$(<"$tmpfile")
+    rm -f "$tmpfile"
+    if [ -d "$last_dir" ]; then
+      cd "$last_dir"
+    fi
+  fi
+}
+
 alias scale125="kscreen-doctor output.eDP-1.scale.1,25"
 alias config='/usr/bin/git --git-dir=/home/janecea/.cfg/ --work-tree=/home/janecea'
