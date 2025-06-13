@@ -59,35 +59,35 @@ local CONFIG = {
 
 CONFIG.colors = {
 	-- Default colors
-	foreground = "#fff1e6",
+	foreground = "#F3EAD2",
 	background = "#100e09",
 
 	-- ANSI colors (normal)
 	ansi = {
-		"#232627", -- color0
-		"#c81b1b", -- color1
-		"#1bc81b", -- color2
-		"#c8741b", -- color3
-		"#1b1bc8", -- color4
-		"#c81bc8", -- color5
-		"#1bc8c8", -- color6
-		"#c8c8c8", -- color7
+		"#0C0C0C", -- color0
+		"#C50F1F", -- color1
+		"#13A10E", -- color2
+		"#C19C00", -- color3
+		"#0037DA", -- color4
+		"#881798", -- color5
+		"#3A96DD", -- color6
+		"#CCCCCC", -- color7
 	},
 
 	-- Bright ANSI colors
 	brights = {
-		"#686868", -- color0 intense
-		"#ff5454", -- color1 intense
-		"#54ff54", -- color2 intense
-		"#ffff54", -- color3 intense
-		"#5454ff", -- color4 intense
-		"#ff54ff", -- color5 intense
-		"#54ffff", -- color6 intense
-		"#ffffff", -- color7 intense
+		"#767676", -- color0 intense
+		"#E74856", -- color1 intense
+		"#16C60C", -- color2 intense
+		"#F9F1A5", -- color3 intense
+		"#3B78FF", -- color4 intense
+		"#B4009E", -- color5 intense
+		"#61D6D6", -- color6 intense
+		"#F2F2F2", -- color7 intense
 	},
 
 	-- Other UI colors (optional)
-	cursor_bg = "#fff1e6",
+	cursor_bg = "#F3EAD2",
 }
 
 CONFIG.keys = {
